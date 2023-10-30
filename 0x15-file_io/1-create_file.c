@@ -22,11 +22,19 @@ int create_file(const char *filename, char *text_content)
 	}
 
 	x = open(filename, O_CREAT | O_RDWR | O_TRUNC, 0600);
-	y = write(x, text_content, length);
+		if (x == -1)
+			return (-1);
 
-	if (x == -1 || y == -1)
-		return (-1);
+		if (length > 0)
+		{
+			y = write(x, text_content, length);
 
-	close (x);
-	return (1);
+				if (y == -1)
+				{
+					close (x);
+					return (-1);
+				}
+		close (x);
+		return (1);
+	
 }
