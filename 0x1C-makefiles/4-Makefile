@@ -1,0 +1,20 @@
+CC = gcc					#compiler
+SRC = main.c school.c				#source files
+OBJ = $(patsubst %.c,%.o,$(SRC))		#Object files (automatically generated)
+NAME = school					#executable file
+RM = rm -f					#Program to delete files
+CFLAGS = -Wall -Werror -Wextra -pedantic	#compiler flags
+
+all: $(OBJ)
+	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(OBJ) -o $(NAME)
+
+clean:
+	$(RM) *~ $(NAME)
+
+oclean:
+	$(RM) $(OBJ)
+
+fclean: clean oclean
+
+re: fclean all
