@@ -6,14 +6,14 @@ RM = rm -f					#Program to delete files
 CFLAGS = -Wall -Werror -Wextra -pedantic	#compiler flags
 
 all: $(OBJ)
-	$(CC) $(OBJ) -o $(NAME)
+	$(CC) $(CLFAGS) $(OBJ) -o $(NAME)	#Rule to build the executable
 
 clean:
-	$(RM) *~ $(NAME)
+	$(RM) *~ $(NAME)			#Rule to delete Emacs and Vim temporary files
 
 oclean:
-	$(RM) $(OBJ)
+	$(RM) $(OBJ)				#Rule to delete object files
 
-fclean: clean oclean
+fclean: clean oclean				#Rule to delete Emacs and Vim temporary files, the executable, and the object files
 
-re: fclean all
+re: fclean all					#Rule to force recompilation of all source files
