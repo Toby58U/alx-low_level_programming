@@ -6,7 +6,6 @@ RM = rm -f					#Program to delete files
 CFLAGS = -Wall -Werror -Wextra -pedantic	#compiler flags
 
 all: $(OBJ)
-	$(CC) $(CFLAGS) -c $< -o $@
 	$(CC) $(OBJ) -o $(NAME)
 
 clean:
